@@ -665,7 +665,7 @@ struct cpufreq_voltage_table {
 static struct cpufreq_voltage_table s5pv310_lookup_volt_table[] = {
 	{
 		.index          = L0,
-		.arm_volt       = 1350000,
+		.arm_volt       = 1450000,
 		.int_volt       = 1100000,
 	}, {
 		.index		= L1,
@@ -722,7 +722,7 @@ static unsigned int s5pv310_lookup_apll_pms_table[CPUFREQ_LEVEL_END] = {
 static struct cpufreq_voltage_table s5pv310_volt_table[CPUFREQ_LEVEL_END] = {
 	{
 		.index          = L0,
-		.arm_volt       = 1350000,
+		.arm_volt       = 1450000,
 		.int_volt       = 1100000,
 	}, {
 		.index		= L1,
@@ -754,7 +754,7 @@ static struct cpufreq_voltage_table s5pv310_volt_table[CPUFREQ_LEVEL_END] = {
 static struct cpufreq_voltage_table s5pv310_volt_table[CPUFREQ_LEVEL_END] = {
 	{
 		.index          = L0,
-		.arm_volt       = 1350000,
+		.arm_volt       = 1450000,
 		.int_volt       = 1100000,
 	}, {
 		.index		= L1,
@@ -2270,8 +2270,8 @@ static int s5pv310_asv_table_update(void)
 			break;
 		}
 		/* Maximum Voltage */
-		if (s5pv310_volt_table[i].arm_volt > 1375000)
-			s5pv310_volt_table[i].arm_volt = 1375000;
+		if (s5pv310_volt_table[i].arm_volt > 1450000)
+			s5pv310_volt_table[i].arm_volt = 1450000;
 
 		/* Minimum Voltage */
 		if (s5pv310_volt_table[i].arm_volt < 925000)
