@@ -1124,8 +1124,6 @@ static int ath9k_start(struct ieee80211_hw *hw)
 		  "Starting driver with initial channel: %d MHz\n",
 		  curchan->center_freq);
 
-	ath9k_ps_wakeup(sc);
-
 	mutex_lock(&sc->mutex);
 
 	if (ath9k_wiphy_started(sc)) {
@@ -1239,8 +1237,6 @@ static int ath9k_start(struct ieee80211_hw *hw)
 
 mutex_unlock:
 	mutex_unlock(&sc->mutex);
-
-	ath9k_ps_restore(sc);
 
 	return r;
 }
