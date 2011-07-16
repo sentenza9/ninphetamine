@@ -1322,6 +1322,12 @@ static int s5pv310_target(struct cpufreq_policy *policy,
 		if ((index == L0) && (old_index > L1))
 			index = L1;
 	}
+/* prevent freqs going above max policy - netarchy */
+	if (s5pv310_freq_table[index].frequency > policy->max) {
+		while (s5pv310_freq_table[index].frequency > policy-> max) {
+			index += 1;
+		}
+	}
 
 	freqs.new = s5pv310_freq_table[index].frequency;
 	freqs.cpu = policy->cpu;
@@ -1863,7 +1869,7 @@ static int s5pv310_cpufreq_cpu_init(struct cpufreq_policy *policy)
 static struct freq_attr *ninphetamine_cpufreq_attr[] = {
         &cpufreq_freq_attr_scaling_available_freqs,
         NULL,
-};
+}; 
 
 static struct cpufreq_driver s5pv310_driver = {
 	.flags = CPUFREQ_STICKY,
@@ -2250,7 +2256,7 @@ static int s5pv310_asv_table_update(void)
 			}
 			break;
 		case 5:
-			if (s5pv310_max_armclk == ARMCLOCK_1400MHZ) {
+			if (s5pv310_max_armclk == ARMCLOCK_1600MHZ) {
 				if (i == 3)
 					s5pv310_volt_table[i].arm_volt -= (25*1000);
 				else
@@ -2357,8 +2363,10 @@ static void s5pv310_asv_set_voltage()
 		asv_arm_index = 0;
 	case 1400000:
 		asv_arm_index = 1;
+		break;
 	case 1200000:
 		asv_arm_index = 2;
+		break;
 	case 1000000:
 		asv_arm_index = 3;
 		break;
