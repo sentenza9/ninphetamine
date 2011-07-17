@@ -12,7 +12,6 @@
 #include <asm/smp.h>
 #include "agp.h"
 #include "intel-agp.h"
-#include <linux/intel-gtt.h>
 
 #include "intel-gtt.c"
 
