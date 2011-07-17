@@ -2283,15 +2283,15 @@ static int s5pv310_asv_table_update(void)
 /*		if (s5pv310_volt_table[i].arm_volt > 1450000)
 			s5pv310_volt_table[i].arm_volt = 1450000;
 */
-		if (exp_UV_mV[i] > 1450000)
-			exp_UV_mV[i] = 1450000;
+		if (exp_UV_mV[i] > 1500000)
+			exp_UV_mV[i] = 1500000;
 		
 		/* Minimum Voltage */
 /*		if (s5pv310_volt_table[i].arm_volt < 925000)
 			s5pv310_volt_table[i].arm_volt = 925000;
 */
-		if (exp_UV_mV[i] < 925000)
-			exp_UV_mV[i] = 925000;
+		if (exp_UV_mV[i] < 800000)
+			exp_UV_mV[i] = 800000;
 
 /*		printk(KERN_INFO "ASV voltage_table[%d].arm_volt = %d\n",
 				i, s5pv310_volt_table[i].arm_volt); */
