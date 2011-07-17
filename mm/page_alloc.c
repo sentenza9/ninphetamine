@@ -103,24 +103,19 @@ gfp_t gfp_allowed_mask __read_mostly = GFP_BOOT_MASK;
  * only be modified with pm_mutex held, unless the suspend/hibernate code is
  * guaranteed not to run in parallel with that modification).
  */
-
-static gfp_t saved_gfp_mask;
-
-void pm_restore_gfp_mask(void)
+void set_gfp_allowed_mask(gfp_t mask)
 {
 	WARN_ON(!mutex_is_locked(&pm_mutex));
-	if (saved_gfp_mask) {
-		gfp_allowed_mask = saved_gfp_mask;
-		saved_gfp_mask = 0;
-	}
+	gfp_allowed_mask = mask;
 }
 
-void pm_restrict_gfp_mask(void)
+gfp_t clear_gfp_allowed_mask(gfp_t mask)
 {
+	gfp_t ret = gfp_allowed_mask;
+
 	WARN_ON(!mutex_is_locked(&pm_mutex));
-	WARN_ON(saved_gfp_mask);
-	saved_gfp_mask = gfp_allowed_mask;
-	gfp_allowed_mask &= ~GFP_IOFS;
+	gfp_allowed_mask &= ~mask;
+	return ret;
 }
 #endif /* CONFIG_PM_SLEEP */
 
