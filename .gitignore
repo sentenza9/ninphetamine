@@ -31,7 +31,7 @@ modules.builtin
 *.lzo
 *.patch
 *.gcno
-
+makedist.sh
 #
 # Top-level generic files
 #
