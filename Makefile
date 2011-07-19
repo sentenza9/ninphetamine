@@ -336,7 +336,7 @@ MODFLAGS	= -DMODULE
 CFLAGS_MODULE   = $(MODFLAGS)
 AFLAGS_MODULE   = $(MODFLAGS)
 LDFLAGS_MODULE  = -T $(srctree)/scripts/module-common.lds
-CFLAGS_KERNEL	= -finline-functions -funswitch-loops -fpredictive-commoning -fgcse-after-reload -ftree-vectorize -fipa-cp-clone -ffast-math -fsingle-precision-constant -pipe -mtune=cortex-a9 -mfpu=neon -march=armv7-a
+CFLAGS_KERNEL	= -finline-functions -funswitch-loops -fpredictive-commoning -fgcse-after-reload -ftree-vectorize -fipa-cp-clone -fsingle-precision-constant -pipe
 AFLAGS_KERNEL	=
 CFLAGS_GCOV	= -fprofile-arcs -ftest-coverage
 
@@ -355,9 +355,9 @@ KBUILD_CFLAGS   := -Wall -Wundef -Wstrict-prototypes -Wno-trigraphs \
 		   -Wno-format-security \
 		   -fno-delete-null-pointer-checks \
 		   -mfpu=neon \
-		   -march=armv7-a
-#		   -mtune=cortex-a9 
-#		   -fno-dwarf2-cfi-asm
+		   -march=armv7-a \
+		   -mtune=cortex-a9 \
+		   -mno-unaligned-access
 KBUILD_AFLAGS   := -D__ASSEMBLY__
 
 # Read KERNELRELEASE from include/config/kernel.release (if it exists)
