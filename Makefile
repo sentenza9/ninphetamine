@@ -354,8 +354,10 @@ KBUILD_CFLAGS   := -Wall -Wundef -Wstrict-prototypes -Wno-trigraphs \
 		   -Werror-implicit-function-declaration \
 		   -Wno-format-security \
 		   -fno-delete-null-pointer-checks \
-		   # Needed for codesourcery 4.5.2 toolchain
-		   -mno-unaligned-access
+		   -mno-unaligned-access \
+		   -march=armv7-a \
+		   -mtune=cortex-a9 \
+		   -mfpu=neon
 KBUILD_AFLAGS   := -D__ASSEMBLY__
 
 # Read KERNELRELEASE from include/config/kernel.release (if it exists)
