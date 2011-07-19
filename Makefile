@@ -354,10 +354,10 @@ KBUILD_CFLAGS   := -Wall -Wundef -Wstrict-prototypes -Wno-trigraphs \
 		   -Werror-implicit-function-declaration \
 		   -Wno-format-security \
 		   -fno-delete-null-pointer-checks \
-		   -fno-dwarf2-cfi-asm \
-		   -mtune=cortex-a9 \
-		   -march=armv7-a \
-		   -mfpu=neon
+		   -mfpu=neon \
+		   -march=armv7-a
+#		   -mtune=cortex-a9 
+#		   -fno-dwarf2-cfi-asm
 KBUILD_AFLAGS   := -D__ASSEMBLY__
 
 # Read KERNELRELEASE from include/config/kernel.release (if it exists)
