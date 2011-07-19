@@ -1712,12 +1712,12 @@ int s5pv310_cpufreq_upper_limit(unsigned int nId, enum cpufreq_level_request cpu
 	if (!s5pv310_cpufreq_init_done)
 		return 0;
 
-	if (s5pv310_max_armclk != ARMCLOCK_1200MHZ) {
+	if (s5pv310_max_armclk != ARMCLOCK_1600MHZ) {
 		if (cpufreq_level != CPU_L0) {
 			cpufreq_level -= 1;
 		} else {
 			printk(KERN_DEBUG
-				"[CPUFREQ]cpufreq lock to 1GHz in place of 1.2GHz\n");
+				"[CPUFREQ]cpufreq lock to 1GHz in place of 1.6GHz\n");
 		}
 	}
 
