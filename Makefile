@@ -355,8 +355,8 @@ KBUILD_CFLAGS   := -Wall -Wundef -Wstrict-prototypes -Wno-trigraphs \
 		   -Wno-format-security \
 		   -fno-delete-null-pointer-checks \
 		   -mfpu=neon \
-		   -march=armv7-a \
-		   -mtune=cortex-a9 \
+		   -march=armv5te \
+		   -mtune=cortex-a8 \
 		   -mno-unaligned-access
 KBUILD_AFLAGS   := -D__ASSEMBLY__
 
