@@ -32,6 +32,7 @@ modules.builtin
 *.patch
 *.gcno
 makedist.sh
+Makefile
 #
 # Top-level generic files
 #
